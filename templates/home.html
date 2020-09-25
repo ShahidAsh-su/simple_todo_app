@@ -23,7 +23,7 @@
 				<tr>
 					<td>{{ task.task }}</td>
 					<td>{{ task.time }}</td>
-					<td> <form action=".\delete" method="post" accept-charset="utf-8">
+					<td> <form action="{{ url_for('delete') }}" method="post" accept-charset="utf-8">
 						<input type="hidden" name="task" value="{{ task.task }}">
 						<input type="submit" value="Delete">
 					</form>
