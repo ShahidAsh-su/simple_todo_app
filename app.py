@@ -11,7 +11,7 @@ db = SQLAlchemy(app)
 
 class Tasks(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	task = db.Column(db.String(120),nullable=False,unique=True)
+	task = db.Column(db.String(120),nullable=False)
 	time = db.Column(db.String(120),default=datetime.utcnow())
 
 	def __repr__(self):
