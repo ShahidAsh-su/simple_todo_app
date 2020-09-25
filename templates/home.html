@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+	<title>TODO App</title>
+{% endblock %}
+{% block body %}
+	<form action="" method="post" accept-charset="utf-8">
+		{{ addtask.hidden_tag() }}
+		{{ addtask.task.label }}
+		{{ addtask.task }}
+		{{ addtask.submit }}
+	</form>
+	<table style="border: 2px solid black;">
+		<caption>TODO list</caption>
+		<thead>
+			<tr style="text-align: center;">
+				<th>Task</th>
+				<th>Time</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for task in todo %}
+				<tr>
+					<td>{{ task.task }}</td>
+					<td>{{ task.time }}</td>
+					<td> <form action=".\delete" method="post" accept-charset="utf-8">
+						<input type="hidden" name="task" value="{{ task.task }}">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
